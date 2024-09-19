@@ -15,7 +15,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - run: useradd archie
+      - run: useradd -G wheel archie
+      - run: mkdir -v /etc/sudoers.d || true
+      - run: echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/wheel.conf
       - run: chown -vR archie /__w/archrepo/archrepo
       - run: git config --global --add safe.directory /__w/archrepo/archrepo
       - run: git submodule foreach su archie -c 'makepkg -s'
