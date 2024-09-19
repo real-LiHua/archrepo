@@ -16,6 +16,6 @@ jobs:
         with:
           submodules: true
       - run: useradd archie
-      - run: ls -l
+      - run: chown -vR archie:archie $BUILDDIR
       - run: git config --global --add safe.directory /__w/archrepo/archrepo
       - run: git submodule foreach su archie -c 'makepkg -s'
