@@ -12,3 +12,6 @@ jobs:
       image: archlinux/archlinux:latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - run: git submodule foreach makepkg -s
