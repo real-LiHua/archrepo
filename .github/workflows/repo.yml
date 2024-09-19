@@ -16,9 +16,9 @@ jobs:
         with:
           submodules: true
       - run: |
-            useradd -G wheel archie
+            useradd archie
             mkdir -v /etc/sudoers.d || true
-            echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/wheel.conf
+            echo 'archie ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/archie.conf
             chown -vR archie /__w/archrepo/archrepo
       - run: git config --global --add safe.directory /__w/archrepo/archrepo
       - run: git submodule foreach su archie -c 'makepkg -s'
