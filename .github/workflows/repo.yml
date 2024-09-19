@@ -15,5 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
+      - run: useradd archie
+      - run: ls -l
       - run: git config --global --add safe.directory /__w/archrepo/archrepo
-      - run: git submodule foreach su alpm -c 'makepkg -s'
+      - run: git submodule foreach su archie -c 'makepkg -s'
