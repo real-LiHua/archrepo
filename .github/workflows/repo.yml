@@ -11,7 +11,7 @@ jobs:
     container:
       image: archlinux/archlinux:latest
     steps:
-      - run: pacman -Sy --needed --noconfirm git
+      - run: pacman -Sy --needed --noconfirm base-devel git
       - uses: actions/checkout@v4
         with:
           submodules: true
