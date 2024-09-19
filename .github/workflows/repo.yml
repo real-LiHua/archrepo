@@ -17,4 +17,4 @@ jobs:
           submodules: true
       - run: sed -i '/E_ROOT/d' /usr/bin/makepkg
       - run: git config --global --add safe.directory /__w/archrepo/archrepo
-      - run: git submodule foreach makepkg -crs --skipchecksums --needed --noconfirm
+      - run: git submodule foreach makepkg -crs --skipchecksums --skippgpcheck --needed --noconfirm
