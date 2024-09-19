@@ -11,10 +11,9 @@ jobs:
     container:
       image: archlinux/archlinux:latest
     steps:
-      - run: cat /etc/passwd
       - run: pacman -Sy --needed --noconfirm git
       - uses: actions/checkout@v4
         with:
           submodules: true
       - run: git config --global --add safe.directory /__w/archrepo/archrepo
-      - run: git submodule foreach makepkg -s
+      - run: git submodule foreach su alpm -c makepkg -s
