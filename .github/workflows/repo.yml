@@ -16,4 +16,4 @@ jobs:
         with:
           submodules: true
       - run: git config --global --add safe.directory /__w/archrepo/archrepo
-      - run: git submodule foreach sudo -u alpm makepkg -s
+      - run: git submodule foreach su alpm -c 'makepkg -s'
